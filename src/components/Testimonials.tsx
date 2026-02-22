@@ -24,18 +24,14 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-16 md:py-32 relative overflow-hidden">
       <div className="magical-glow w-[600px] h-[600px] bg-brand-primary -bottom-48 -left-48"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-8">
           <div className="max-w-2xl">
             <p className="text-brand-primary font-bold text-[10px] mb-6 uppercase tracking-[0.3em]">Vélemények</p>
             <h2 className="text-5xl md:text-7xl italic">Már több tucatnyian találtak rá saját belső kincsükre</h2>
-          </div>
-          <div className="flex gap-4">
-            <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 cursor-pointer">←</div>
-            <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 cursor-pointer">→</div>
           </div>
         </div>
         

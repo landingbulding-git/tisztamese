@@ -26,9 +26,9 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section className="py-24 bg-brand-bg">
+    <section className="py-16 md:py-24 bg-brand-bg">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl text-center mb-20">Találj rá a megoldásra 4 egyszerű lépésben</h2>
+        <h2 className="text-4xl md:text-5xl text-center mb-12 md:mb-20">Találj rá a megoldásra 4 egyszerű lépésben</h2>
         
         <div className="grid md:grid-cols-4 gap-8">
           {steps.map((step, idx) => (

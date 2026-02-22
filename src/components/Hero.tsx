@@ -4,7 +4,7 @@ import { Star, ShieldCheck, Clock } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative pt-40 pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-32 overflow-hidden">
       {/* Magical Glows */}
       <div className="magical-glow w-[500px] h-[500px] bg-brand-primary -top-48 -left-24"></div>
       <div className="magical-glow w-[400px] h-[400px] bg-emerald-500 bottom-0 -right-24"></div>
@@ -61,20 +61,20 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mt-24 relative max-w-5xl mx-auto"
+          className="mt-16 md:mt-24 relative max-w-5xl mx-auto"
         >
-          <div className="aspect-video rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border border-white/10 bg-black">
+          <div className="relative pt-[56.25%] rounded-3xl md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border border-white/10 bg-black">
             <iframe 
               src="https://player.vimeo.com/video/1106238166?badge=0&autopause=0&player_id=0&app_id=58479" 
-              className="w-full h-full"
+              className="absolute top-0 left-0 w-full h-full"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
               title="Barcza Katalin Meseterápiás Szakember"
             ></iframe>
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-50"></div>
           </div>
           
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 glass-card p-8 w-full max-w-md text-center">
-            <p className="text-lg italic font-serif leading-relaxed">
+          <div className="absolute -bottom-6 md:-bottom-10 left-1/2 -translate-x-1/2 glass-card p-4 md:p-8 w-[90%] md:w-full max-w-md text-center">
+            <p className="text-sm md:text-lg italic font-serif leading-relaxed">
               "A mese szimbólumai olyan kapukat nyitnak meg, amiket a logika zárva tart."
             </p>
           </div>

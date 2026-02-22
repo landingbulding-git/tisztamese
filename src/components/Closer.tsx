@@ -3,7 +3,7 @@ import { LeadForm } from './LeadForm';
 
 export const Closer = () => {
   return (
-    <section className="py-32 relative overflow-hidden bg-gradient-to-br from-brand-bg via-brand-bg/80 to-brand-primary/70">
+    <section className="py-16 md:py-32 relative overflow-hidden bg-gradient-to-br from-brand-bg via-brand-bg/80 to-brand-primary/70">
       {/* Magical Glows */}
       <div className="magical-glow w-[800px] h-[800px] bg-brand-primary -bottom-48 -right-48 opacity-40"></div>
       <div className="magical-glow w-[400px] h-[400px] bg-brand-primary -top-24 -left-24 opacity-20"></div>

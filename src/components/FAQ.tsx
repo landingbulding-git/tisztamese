@@ -21,7 +21,7 @@ export const FAQ = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 bg-brand-bg">
+    <section id="faq" className="py-16 md:py-24 bg-brand-bg">
       <div className="max-w-3xl mx-auto px-6">
         <h2 className="text-4xl text-center mb-16">Gyakran Ismételt Kérdések</h2>
         

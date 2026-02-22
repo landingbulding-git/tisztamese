@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 export const Founder = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="relative order-2 lg:order-1">

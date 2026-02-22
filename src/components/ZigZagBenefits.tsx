@@ -21,7 +21,7 @@ const benefits = [
 
 export const ZigZagBenefits = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="space-y-32">
           {benefits.map((benefit, idx) => (

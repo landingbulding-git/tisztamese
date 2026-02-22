@@ -25,9 +25,9 @@ const props = [
 
 export const ValueProps = () => {
   return (
-    <section id="how-it-works" className="py-32 relative overflow-hidden">
+    <section id="how-it-works" className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
           <h2 className="text-5xl md:text-7xl mb-8 italic">Milyen hatást keresel?</h2>
           <p className="text-xl opacity-60 font-light">A Kincskereső módszer segít abban, hogy a tudatalattid üzenetei érthetővé váljanak.</p>
         </div>
