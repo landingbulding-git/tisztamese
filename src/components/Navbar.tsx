@@ -12,7 +12,8 @@ export const Navbar = () => {
         
         <div className="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
           <a href="#how-it-works" className="hover:text-brand-primary transition-colors">Hogyan működik?</a>
-          <a href="#testimonials" className="hover:text-brand-primary transition-colors">Vélemények</a>
+          <a href="https://norbertai.notion.site/Minden-mese-egy-lehet-s-g-a-kapcsol-d-sra-201b3a2e7a0c804581cfff1c41045abb" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Mesék</a>
+          <a href="https://norbertai.notion.site/Meseter-pi-s-alkalmak-l-ben-k-z-ss-gben-kappl-dva-201b3a2e7a0c806b9ccdd7df48b1c5e2?source=copy_link" target="_blank" rel="noopener noreferrer" className="hover:text-brand-primary transition-colors">Események</a>
           <a href="#faq" className="hover:text-brand-primary transition-colors">GYIK</a>
           <a href="#contact" className="btn-primary py-3 px-8 text-[10px]">Jelentkezés</a>
         </div>
