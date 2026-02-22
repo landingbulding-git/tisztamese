@@ -5,17 +5,17 @@ const benefits = [
   {
     title: "Rálátsz belső kincseidre",
     description: "A mese képei és szimbólumai finoman segítenek felfedezni azt, ami benned már régóta ott van, csak eddig rejtve maradt.",
-    image: "https://picsum.photos/seed/inner-treasure/800/600"
+    image: "https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/belsokincs.jpg"
   },
   {
     title: "Elmozdulás az elakadásokból",
     description: "Amikor úgy érzed, nem tudsz továbbmenni, a mese segíthet kimozdítani a belső \"homokszemet\" gyengéden, de határozottan.",
-    image: "https://picsum.photos/seed/breakthrough/800/600"
+    image: "https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/624200989_1345281304296564_7809156898883331192_n.jpg"
   },
   {
     title: "Megnyugvás és belső rend",
     description: "A foglalkozások után gyakran jelenik meg a felismerés: minden összefügg, és a változás kulcsa ott van benned.",
-    image: "https://picsum.photos/seed/inner-peace/800/600"
+    image: "https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/megnyugvas.jpg"
   }
 ];
 

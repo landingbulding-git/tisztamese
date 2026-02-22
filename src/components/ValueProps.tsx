@@ -43,7 +43,7 @@ export const ValueProps = () => {
               className="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10"
             >
               <img 
-                src={`https://picsum.photos/seed/${['storytelling-forest', 'creative-art-therapy', 'mystical-symbols'][idx]}/600/800`} 
+                src={`https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/alkot%C3%A1s.jpg`} 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 alt={p.title}
                 referrerPolicy="no-referrer"
