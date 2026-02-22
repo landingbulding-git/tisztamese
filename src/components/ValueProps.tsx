@@ -55,15 +55,15 @@ export const ValueProps = () => {
                   alt={p.title}
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-transparent"></div>
                 
                 <div className="absolute inset-0 p-10 flex flex-col justify-end items-center text-center">
                   <div className="w-14 h-14 rounded-2xl bg-brand-primary/20 backdrop-blur-xl flex items-center justify-center mb-6 text-brand-primary border border-white/10">
                     <p.icon size={28} />
                   </div>
-                  <h3 className="text-3xl mb-3 font-serif italic">{p.title}</h3>
-                  <p className="text-brand-primary font-bold text-[10px] mb-4 uppercase tracking-[0.2em]">{p.benefit}</p>
-                  <p className="opacity-0 group-hover:opacity-70 transition-opacity duration-500 text-sm leading-relaxed max-w-[240px]">
+                  <h3 className="text-3xl mb-3 font-serif italic text-white drop-shadow-md">{p.title}</h3>
+                  <p className="text-brand-primary font-bold text-xs mb-4 uppercase tracking-[0.2em] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{p.benefit}</p>
+                  <p className="opacity-0 group-hover:opacity-70 transition-opacity duration-500 text-sm leading-relaxed max-w-[240px] text-white">
                     {p.description}
                   </p>
                 </div>
