@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Palette, Compass } from 'lucide-react';
 
@@ -24,6 +24,8 @@ const props = [
 ];
 
 export const ValueProps = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <section id="how-it-works" className="py-16 md:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -47,11 +49,12 @@ export const ValueProps = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10"
+                onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
+                className="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-white/10 cursor-pointer"
               >
                 <img 
                   src={images[p.title]} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${activeIndex === idx ? 'scale-110' : 'group-hover:scale-110'}`}
                   alt={p.title}
                   referrerPolicy="no-referrer"
                 />
@@ -63,7 +66,7 @@ export const ValueProps = () => {
                   </div>
                   <h3 className="text-3xl mb-3 font-serif italic text-white drop-shadow-md">{p.title}</h3>
                   <p className="text-brand-primary font-bold text-xs mb-4 uppercase tracking-[0.2em] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{p.benefit}</p>
-                  <p className="opacity-0 group-hover:opacity-70 transition-opacity duration-500 text-sm leading-relaxed max-w-[240px] text-white">
+                  <p className={`transition-opacity duration-500 text-sm leading-relaxed max-w-[240px] text-white ${activeIndex === idx ? 'opacity-70' : 'opacity-0 group-hover:opacity-70'}`}>
                     {p.description}
                   </p>
                 </div>
