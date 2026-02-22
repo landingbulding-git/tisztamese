@@ -1,0 +1,38 @@
+---
+import '../index.css';
+import { Navbar } from '../components/Navbar';
+import { Hero } from '../components/Hero';
+import { Testimonials } from '../components/Testimonials';
+import { ValueProps } from '../components/ValueProps';
+import { ZigZagBenefits } from '../components/ZigZagBenefits';
+import { Process } from '../components/Process';
+import { Founder } from '../components/Founder';
+import { FAQ } from '../components/FAQ';
+import { Closer } from '../components/Closer';
+import { Footer } from '../components/Footer';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <Navbar client:load />
+      <main>
+        <Hero client:load />
+        <Testimonials client:visible />
+        <ValueProps client:visible />
+        <ZigZagBenefits client:visible />
+        <Process client:visible />
+        <Founder client:visible />
+        <FAQ client:visible />
+        <Closer client:visible />
+      </main>
+      <Footer client:visible />
+    </div>
+  </body>
+</html>
