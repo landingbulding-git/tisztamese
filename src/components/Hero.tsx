@@ -63,6 +63,12 @@ export const Hero = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="mt-16 md:mt-24 relative max-w-5xl mx-auto"
         >
+          <div className="glass-card p-4 md:p-8 w-full max-w-md mx-auto text-center mb-12 relative z-20">
+            <p className="text-sm md:text-lg italic font-serif leading-relaxed">
+              "A mese szimbólumai olyan kapukat nyitnak meg, amiket a logika zárva tart."
+            </p>
+          </div>
+
           <div className="relative pt-[56.25%] rounded-3xl md:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border border-white/10 bg-black">
             <iframe 
               src="https://player.vimeo.com/video/1106238166?badge=0&autopause=0&player_id=0&app_id=58479" 
@@ -71,12 +77,6 @@ export const Hero = () => {
               title="Barcza Katalin Meseterápiás Szakember"
             ></iframe>
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-50"></div>
-          </div>
-          
-          <div className="absolute -bottom-6 md:-bottom-10 left-1/2 -translate-x-1/2 glass-card p-4 md:p-8 w-[90%] md:w-full max-w-md text-center">
-            <p className="text-sm md:text-lg italic font-serif leading-relaxed">
-              "A mese szimbólumai olyan kapukat nyitnak meg, amiket a logika zárva tart."
-            </p>
           </div>
         </motion.div>
       </div>
