@@ -21,16 +21,16 @@ export const FAQ = () => {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-brand-bg">
+    <section id="faq" className="py-12 md:py-20 bg-brand-bg">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-4xl text-center mb-16">Gyakran Ismételt Kérdések</h2>
+        <h2 className="text-4xl text-center mb-12">Gyakran Ismételt Kérdések</h2>
         
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq, idx) => (
             <div key={idx} className="glass-card overflow-hidden">
               <button 
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-                className="w-full p-6 text-left flex items-center justify-between hover:bg-white/30 transition-colors"
+                className="w-full p-5 text-left flex items-center justify-between hover:bg-white/30 transition-colors"
               >
                 <span className="font-bold text-lg">{faq.q}</span>
                 <ChevronDown 

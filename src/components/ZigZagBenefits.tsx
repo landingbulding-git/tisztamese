@@ -21,9 +21,9 @@ const benefits = [
 
 export const ZigZagBenefits = () => {
   return (
-    <section className="py-16 md:py-32 relative overflow-hidden">
+    <section className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="space-y-32">
+        <div className="space-y-20">
           {benefits.map((benefit, idx) => (
             <motion.div 
               key={idx}
@@ -31,9 +31,9 @@ export const ZigZagBenefits = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-24`}
+              className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 lg:gap-16`}
             >
-              <div className="flex-1 space-y-8">
+              <div className="flex-1 space-y-6">
                 <div className="inline-block px-4 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-[10px] font-bold uppercase tracking-widest">
                   Előnyök
                 </div>

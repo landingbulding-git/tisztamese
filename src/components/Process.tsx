@@ -26,16 +26,16 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section className="py-16 md:py-24 bg-brand-bg">
+    <section className="py-12 md:py-20 bg-brand-bg">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl text-center mb-12 md:mb-20">Találj rá a megoldásra 4 egyszerű lépésben</h2>
+        <h2 className="text-4xl md:text-5xl text-center mb-10 md:mb-16">Találj rá a megoldásra 4 egyszerű lépésben</h2>
         
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, idx) => (
             <div key={idx} className="relative">
               <span className="font-serif text-8xl opacity-5 absolute -top-10 -left-4 select-none">{step.num}</span>
               <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                 <p className="opacity-70 leading-relaxed">{step.desc}</p>
               </div>
               {idx < steps.length - 1 && (

@@ -4,7 +4,7 @@ import { Star, ShieldCheck, Clock } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative pt-32 pb-16 md:pt-40 md:pb-32 overflow-hidden">
+    <section className="relative pt-24 pb-12 md:pt-32 md:pb-24 overflow-hidden">
       {/* Magical Glows */}
       <div className="magical-glow w-[500px] h-[500px] bg-brand-primary -top-48 -left-24"></div>
       <div className="magical-glow w-[400px] h-[400px] bg-emerald-500 bottom-0 -right-24"></div>
@@ -25,11 +25,11 @@ export const Hero = () => {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-10 font-serif italic">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-8 font-serif italic">
             Találj ki a <span className="text-brand-primary not-italic">labirintusból</span>
           </h1>
 
-          <p className="text-xl md:text-2xl opacity-70 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
+          <p className="text-xl md:text-2xl opacity-70 mb-10 leading-relaxed max-w-2xl mx-auto font-light">
             A Kincskereső Meseterápia képeken, szimbólumokon, érzéseken keresztül segít rátalálni belső erődre, feldolgozni elakadásaidat és újra kapcsolatba lépni önmagaddal. Szelíd, mégis mélyre ható módszer a változáshoz.
           </p>
 
@@ -60,9 +60,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mt-16 md:mt-24 relative max-w-5xl mx-auto"
+          className="mt-12 md:mt-16 relative max-w-5xl mx-auto"
         >
-          <div className="glass-card p-4 md:p-8 w-full max-w-md mx-auto text-center mb-12 relative z-20">
+          <div className="glass-card p-4 md:p-6 w-full max-w-md mx-auto text-center mb-8 relative z-20">
             <p className="text-sm md:text-lg italic font-serif leading-relaxed">
               "A mese szimbólumai olyan kapukat nyitnak meg, amiket a logika zárva tart."
             </p>

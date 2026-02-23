@@ -27,14 +27,14 @@ export const ValueProps = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="how-it-works" className="py-16 md:py-32 relative overflow-hidden">
+    <section id="how-it-works" className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-24">
-          <h2 className="text-5xl md:text-7xl mb-8 italic">Milyen hatást keresel?</h2>
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
+          <h2 className="text-5xl md:text-7xl mb-6 italic">Milyen hatást keresel?</h2>
           <p className="text-xl opacity-60 font-light">A Kincskereső módszer segít abban, hogy a tudatalattid üzenetei érthetővé váljanak.</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {props.map((p, idx) => {
             const images: Record<string, string> = {
               "Relaxált mesehallgatás": "https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/relax.jpg",
@@ -60,12 +60,12 @@ export const ValueProps = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-brand-bg/80 to-transparent"></div>
                 
-                <div className="absolute inset-0 p-10 flex flex-col justify-end items-center text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-brand-primary/20 backdrop-blur-xl flex items-center justify-center mb-6 text-brand-primary border border-white/10">
+                <div className="absolute inset-0 p-8 flex flex-col justify-end items-center text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-primary/20 backdrop-blur-xl flex items-center justify-center mb-4 text-brand-primary border border-white/10">
                     <p.icon size={28} />
                   </div>
-                  <h3 className="text-3xl mb-3 font-serif italic text-white drop-shadow-md">{p.title}</h3>
-                  <p className="text-brand-primary font-bold text-xs mb-4 uppercase tracking-[0.2em] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{p.benefit}</p>
+                  <h3 className="text-3xl mb-2 font-serif italic text-white drop-shadow-md">{p.title}</h3>
+                  <p className="text-brand-primary font-bold text-xs mb-3 uppercase tracking-[0.2em] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{p.benefit}</p>
                   <p className={`transition-opacity duration-500 text-sm leading-relaxed max-w-[240px] text-white ${activeIndex === idx ? 'opacity-70' : 'opacity-0 group-hover:opacity-70'}`}>
                     {p.description}
                   </p>

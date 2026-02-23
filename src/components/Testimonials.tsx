@@ -24,18 +24,18 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-16 md:py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-12 md:py-24 relative overflow-hidden">
       <div className="magical-glow w-[600px] h-[600px] bg-brand-primary -bottom-48 -left-48"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16 gap-6">
           <div className="max-w-2xl">
             <p className="text-brand-primary font-bold text-[10px] mb-6 uppercase tracking-[0.3em]">Vélemények</p>
             <h2 className="text-5xl md:text-7xl italic">Már több tucatnyian találtak rá saját belső kincsükre</h2>
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, idx) => (
             <motion.div 
               key={idx}
@@ -43,9 +43,9 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className={`glass-card p-10 flex flex-col ${idx === 1 ? 'md:-translate-y-8 border-brand-primary/30' : ''}`}
+              className={`glass-card p-8 flex flex-col ${idx === 1 ? 'md:-translate-y-6 border-brand-primary/30' : ''}`}
             >
-              <div className="flex items-center gap-5 mb-8">
+              <div className="flex items-center gap-4 mb-6">
                 <div className="relative">
                   <div className="absolute -inset-1 bg-brand-primary/20 rounded-full blur-sm"></div>
                   <img 
@@ -62,7 +62,7 @@ export const Testimonials = () => {
                   </div>
                 </div>
               </div>
-              <h4 className="text-2xl font-serif italic mb-6 leading-tight">"{t.title}"</h4>
+              <h4 className="text-2xl font-serif italic mb-4 leading-tight">"{t.title}"</h4>
               <p className="opacity-60 leading-relaxed font-light">{t.text}</p>
             </motion.div>
           ))}
