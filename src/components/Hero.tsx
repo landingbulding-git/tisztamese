@@ -21,16 +21,16 @@ export const Hero = () => {
               {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
             </div>
             <span className="text-[10px] font-bold uppercase tracking-widest opacity-60">
-              A legnyugodtabb óra a héten
+              5.0 (a résztvevők 100%-a ajánlja)
             </span>
           </div>
 
           <h1 className="text-6xl md:text-8xl lg:text-9xl leading-[0.9] mb-10 font-serif italic">
-            Lépj ki a <span className="text-brand-primary not-italic">labirintusból</span>
+            Találj ki a <span className="text-brand-primary not-italic">labirintusból</span>
           </h1>
 
           <p className="text-xl md:text-2xl opacity-70 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
-            Túlgondolod az életed? A Kincskereső Meseterápia szimbólumokon keresztül kerüli meg a racionális elmét, hogy közvetlenül a lelkednek adjon választ.
+            A Kincskereső Meseterápia képeken, szimbólumokon, érzéseken keresztül segít rátalálni belső erődre, feldolgozni elakadásaidat és újra kapcsolatba lépni önmagaddal. Szelíd, mégis mélyre ható módszer a változáshoz.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -50,8 +50,7 @@ export const Hero = () => {
                 ))}
               </div>
               <div className="text-left">
-                <p className="text-sm font-bold">100+ sikeres folyamat</p>
-                <p className="text-[10px] uppercase tracking-widest opacity-40">Önismereti utazás</p>
+                <p className="text-sm font-bold">500+ elégedett meséző</p>
               </div>
             </div>
           </div>
