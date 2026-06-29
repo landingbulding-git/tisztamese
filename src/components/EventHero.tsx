@@ -19,7 +19,7 @@ export const EventHero = () => {
       const web3FormData = new FormData();
       web3FormData.append("name", name);
       web3FormData.append("email", email);
-      web3FormData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
+      web3FormData.append("access_key", "2041bd6b-4a8c-4785-ba6e-4f77246daf43");
 
       const web3Response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
