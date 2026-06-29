@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Clock, MapPin } from 'lucide-react';
 
 export const EventHero = () => {
+  const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    const formData = new FormData(event.currentTarget);
+    formData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Köszönjük a regisztrációt! Hamarosan kapcsolatba lépünk veled.");
+        (event.target as HTMLFormElement).reset();
+      } else {
+        setResult("Hiba történt. Kérlek próbáld meg újra!");
+      }
+    } catch (error) {
+      setResult("Hiba történt. Kérlek próbáld meg újra!");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section className="relative bg-red-100 pt-0 pb-12 md:pb-16">
       <div className="max-w-5xl mx-auto px-0">
@@ -80,17 +111,20 @@ export const EventHero = () => {
             Az esemény ingyenes de regisztrációhoz kötött.
           </p>
 
-          {/* Form Fields */}
-          <div className="flex flex-col gap-4 mt-6 max-w-2xl">
+          {/* Registration Form */}
+          <form onSubmit={onSubmit} className="flex flex-col gap-4 mt-6 max-w-2xl">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-semibold text-black mb-2">
+              <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
                 Keresztnév
               </label>
               <input
                 type="text"
-                id="firstName"
+                id="name"
+                name="name"
                 placeholder="Vezetéknév Keresztnév"
-                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
+                required
+                disabled={isLoading}
+                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             <div>
@@ -100,23 +134,42 @@ export const EventHero = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="email@pelda.hu"
-                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
+                required
+                disabled={isLoading}
+                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
-          </div>
 
-          {/* CTA Button */}
-          <div className="pt-4">
-            <motion.a
-              href="#register"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block bg-red-500 hover:bg-red-600 text-white px-8 md:px-10 py-4 rounded-full font-bold transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.5)] uppercase tracking-widest text-sm"
-            >
-              Szeretnék regisztrálni az eseményre
-            </motion.a>
-          </div>
+            {/* CTA Button */}
+            <div className="pt-4">
+              <motion.button
+                type="submit"
+                whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                whileTap={{ scale: isLoading ? 1 : 0.95 }}
+                disabled={isLoading}
+                className="inline-block bg-red-500 hover:bg-red-600 text-white px-8 md:px-10 py-4 rounded-full font-bold transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.5)] uppercase tracking-widest text-sm disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isLoading ? "Regisztrálás..." : "Szeretnék regisztrálni az eseményre"}
+              </motion.button>
+            </div>
+
+            {/* Result Message */}
+            {result && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`p-4 rounded-lg text-sm font-medium ${
+                  result.includes("Köszönjük")
+                    ? "bg-green-100 text-green-800 border border-green-300"
+                    : "bg-red-100 text-red-800 border border-red-300"
+                }`}
+              >
+                {result}
+              </motion.div>
+            )}
+          </form>
         </motion.div>
       </div>
     </section>
