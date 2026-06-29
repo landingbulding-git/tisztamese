@@ -28,7 +28,7 @@ export const EventHero = () => {
 
       // Send to webhook
       const webhookResponse = await fetch(
-        "https://demo.lupio.hu/webhook-test/bae077dc-a399-4bfc-8572-af104c358765",
+        "https://demo.lupio.hu/webhook/bae077dc-a399-4bfc-8572-af104c358765",
         {
           method: "POST",
           headers: {
@@ -72,7 +72,7 @@ export const EventHero = () => {
           }}
         >
           <img
-            src="https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/cover.webp"
+            src="https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/cover2.webp"
             alt="Event Cover"
             className="w-full h-full object-cover"
           />
