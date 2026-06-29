@@ -50,7 +50,7 @@ export const EventHero = () => {
           className="px-6 md:px-12 flex flex-col gap-4 md:gap-5"
         >
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight">
             Az Anyák <span className="text-red-500">Ünnepélye</span>
           </h1>
 
@@ -64,19 +64,45 @@ export const EventHero = () => {
               <Clock className="w-5 h-5" />
               <span>18:00 - 21:00</span>
             </div>
-            <div className="flex items-center gap-2 text-white/60 text-sm">
+            <div className="flex items-center gap-2 text-black/60 text-sm">
               <MapPin className="w-4 h-4" />
               <span>Budapest</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl font-light">
+          <p className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl font-light">
             Csatlakozz egy különleges eseményre, ahol megtisztelhetjük az anyákat. Telt ház, vidám hangulatú ünnepség, ahol az érzelmi közelség az elsődleges cél.
           </p>
 
+          {/* Form Fields */}
+          <div className="flex flex-col gap-4 mt-6 max-w-2xl">
+            <div>
+              <label htmlFor="firstName" className="block text-sm font-semibold text-black mb-2">
+                Keresztnév
+              </label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Vezetéknév Keresztnév"
+                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-black mb-2">
+                E-mail cím
+              </label>
+              <input
+                type="email"
+                id="email"
+                placeholder="email@pelda.hu"
+                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all"
+              />
+            </div>
+          </div>
+
           {/* CTA Button */}
-          <div className="pt-2">
+          <div className="pt-4">
             <motion.a
               href="#register"
               whileHover={{ scale: 1.05 }}
