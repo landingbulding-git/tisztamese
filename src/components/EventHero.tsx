@@ -51,28 +51,33 @@ export const EventHero = () => {
         >
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight">
-            Az Anyák <span className="text-red-500">Ünnepélye</span>
+            Anyaseb:<span className="text-red-500"> online mesefoglalkozás felnőtt nőknek</span>
           </h1>
 
           {/* Meta Information */}
           <div className="flex flex-wrap gap-2 md:gap-4 items-center text-sm md:text-base">
             <div className="flex items-center gap-2 text-red-500 font-semibold">
               <Calendar className="w-5 h-5" />
-              <span>2026. június 29.</span>
+              <span>2026.07.08.</span>
             </div>
             <div className="flex items-center gap-2 text-red-500 font-semibold">
               <Clock className="w-5 h-5" />
-              <span>18:00 - 21:00</span>
+              <span>18:00 - 20:30</span>
             </div>
             <div className="flex items-center gap-2 text-black/60 text-sm">
               <MapPin className="w-4 h-4" />
-              <span>Budapest</span>
+              <span>Online</span>
             </div>
           </div>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl font-light">
-            Csatlakozz egy különleges eseményre, ahol megtisztelhetjük az anyákat. Telt ház, vidám hangulatú ünnepség, ahol az érzelmi közelség az elsődleges cél.
+            Életünk legelső kapcsolata az édesanyánkhoz köt – ez a kötelék határozza meg, hogyan látjuk önmagunkat és a világot. De mi történik akkor, ha a szeretet helyett akaratlanul is sebeket kaptunk? Hogyan válhatunk az elutasított „mostohalányból" újra teljes és egész felnőtté? A népmesék évezredes szimbólumai segítenek rátekinteni a régi sebekre, elindítják a feldolgozást, és feltöltenek pozitív tartalommal. Ebben a belső munkában a történetek a legbiztonságosabb társaink.
+          </p>
+
+          {/* Event Info */}
+          <p className="text-sm md:text-base text-black/60 font-medium">
+            Az esemény ingyenes de regisztrációhoz kötött.
           </p>
 
           {/* Form Fields */}
