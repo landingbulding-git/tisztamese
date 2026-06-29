@@ -11,17 +11,41 @@ export const EventHero = () => {
     setIsLoading(true);
 
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Send to Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("name", name);
+      web3FormData.append("email", email);
+      web3FormData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
+
+      const web3Response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: web3FormData
       });
 
-      const data = await response.json();
+      // Send to webhook
+      const webhookResponse = await fetch(
+        "https://demo.lupio.hu/webhook-test/bae077dc-a399-4bfc-8572-af104c358765",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            event: "Anyaseb: online mesefoglalkozás felnőtt nőknek",
+            timestamp: new Date().toISOString(),
+          }),
+        }
+      );
 
-      if (data.success) {
+      const web3Data = await web3Response.json();
+
+      if (web3Data.success && webhookResponse.ok) {
         setResult("Köszönjük a regisztrációt! Hamarosan kapcsolatba lépünk veled.");
         (event.target as HTMLFormElement).reset();
       } else {
