@@ -4,7 +4,7 @@ import { Calendar, Clock, MapPin } from 'lucide-react';
 
 export const EventHero = () => {
   return (
-    <section className="relative bg-brand-bg pt-0 pb-12 md:pb-16">
+    <section className="relative bg-red-100 pt-0 pb-12 md:pb-16">
       <div className="max-w-5xl mx-auto px-0">
         {/* Cover Image - Full Width with Responsive Border Radius */}
         <motion.div
@@ -13,7 +13,7 @@ export const EventHero = () => {
           transition={{ duration: 0.8 }}
           className="relative w-full rounded-0 md:rounded-3xl overflow-hidden shadow-lg"
           style={{
-            aspectRatio: '16 / 9',
+            maxHeight: '240px',
           }}
         >
           <img
@@ -21,7 +21,7 @@ export const EventHero = () => {
             alt="Event Cover"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-bg/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-red-100/60"></div>
         </motion.div>
 
         {/* Event Image - Overlapped with Negative Margin */}
@@ -32,7 +32,7 @@ export const EventHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative -mt-12 md:-mt-16 mb-6 md:mb-8 z-20"
           >
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-4 border-brand-bg shadow-xl bg-white/10 backdrop-blur-sm">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-white/10 backdrop-blur-sm">
               <img
                 src="https://picsum.photos/200/200?random=event2"
                 alt="Event"
