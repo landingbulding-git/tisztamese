@@ -152,9 +152,14 @@ export const EventHero = () => {
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl font-light">
-            Életünk legelső kapcsolata az édesanyánkhoz köt – ez a kötelék határozza meg, hogyan látjuk önmagunkat és a világot. De mi történik akkor, ha a szeretet helyett akaratlanul is sebeket kaptunk? Hogyan válhatunk az elutasított „mostohalányból" újra teljes és egész felnőtté? A népmesék évezredes szimbólumai segítenek rátekinteni a régi sebekre, elindítják a feldolgozást, és feltöltenek pozitív tartalommal. Ebben a belső munkában a történetek a legbiztonságosabb társaink.
-          </p>
+          <div className="text-lg md:text-xl text-black/70 leading-relaxed max-w-3xl font-light space-y-4">
+            <p>
+              Életünk <b>legelső kapcsolata az édesanyánkhoz</b> köt – ez a kötelék határozza meg, hogyan látjuk önmagunkat és a világot. De mi történik akkor, ha a <b>szeretet helyett akaratlanul is sebeket</b> kaptunk?
+            </p>
+            <p>
+              Hogyan válhatunk az <b>elutasított „mostohalányból" újra teljes és egész felnőtté</b>? A <b>népmesék évezredes szimbólumai</b> segítenek rátekinteni a régi sebekre, elindítják a <b>feldolgozást</b>, és feltöltenek pozitív tartalommal. Ebben a belső munkában a <b>történetek a legbiztonságosabb társaink</b>.
+            </p>
+          </div>
 
           {/* Event Info */}
           <p className="text-sm md:text-base text-black/60 font-medium">
