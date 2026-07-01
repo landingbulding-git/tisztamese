@@ -242,7 +242,6 @@ export const EventHero = () => {
             </form>
           )}
         </motion.div>
-        </motion.div>
       </div>
     </section>
   );
