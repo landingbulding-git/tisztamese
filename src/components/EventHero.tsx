@@ -1,24 +1,51 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
-import { Calendar, Clock, MapPin } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Calendar, Clock, MapPin, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const EventHero = () => {
-  const [result, setResult] = useState("");
+  const [currentStep, setCurrentStep] = useState(0);
+  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [result, setResult] = useState<'' | 'success' | 'error'>('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const fields = [
+    { name: 'name', label: 'Keresztnév', placeholder: 'Vezetéknév Keresztnév' },
+    { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu' },
+  ];
+
+  const currentField = fields[currentStep];
+  const isStepValid = formData[currentField.name as keyof typeof formData]?.trim() !== '';
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleNext();
+    }
+  };
+
+  const handleNext = async () => {
+    if (!isStepValid) return;
+
+    if (currentStep < fields.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      await handleSubmit();
+    }
+  };
+
+  const handleSubmit = async () => {
+    if (!isStepValid) return;
+
     setIsLoading(true);
-
-    const formData = new FormData(event.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-
     try {
       // Send to Web3Forms
       const web3FormData = new FormData();
-      web3FormData.append("name", name);
-      web3FormData.append("email", email);
+      web3FormData.append("name", formData.name);
+      web3FormData.append("email", formData.email);
       web3FormData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
 
       const web3Response = await fetch("https://api.web3forms.com/submit", {
@@ -35,8 +62,8 @@ export const EventHero = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name,
-            email,
+            name: formData.name,
+            email: formData.email,
             event: "Anyaseb: online mesefoglalkozás felnőtt nőknek",
             timestamp: new Date().toISOString(),
           }),
@@ -46,13 +73,12 @@ export const EventHero = () => {
       const web3Data = await web3Response.json();
 
       if (web3Data.success && webhookResponse.ok) {
-        setResult("Köszönjük a regisztrációt! Hamarosan kapcsolatba lépünk veled.");
-        (event.target as HTMLFormElement).reset();
+        setResult("success");
       } else {
-        setResult("Hiba történt. Kérlek próbáld meg újra!");
+        setResult("error");
       }
     } catch (error) {
-      setResult("Hiba történt. Kérlek próbáld meg újra!");
+      setResult("error");
     } finally {
       setIsLoading(false);
     }
@@ -136,64 +162,86 @@ export const EventHero = () => {
           </p>
 
           {/* Registration Form */}
-          <form onSubmit={onSubmit} className="flex flex-col gap-4 mt-6 max-w-2xl">
-            <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
-                Keresztnév
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Vezetéknév Keresztnév"
-                required
-                disabled={isLoading}
-                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-black mb-2">
-                E-mail cím
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="email@pelda.hu"
-                required
-                disabled={isLoading}
-                className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              />
-            </div>
+          {result === 'success' ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex flex-col gap-4 mt-6 max-w-2xl items-center py-8"
+            >
+              <CheckCircle size={64} className="text-emerald-500" />
+              <h3 className="text-2xl font-bold text-black">Köszönjük a regisztrációt!</h3>
+              <p className="text-black/70">Hamarosan kapcsolatba lépünk veled.</p>
+            </motion.div>
+          ) : (
+            <form className="flex flex-col gap-6 mt-6 max-w-2xl">
+              {/* Progress indicator */}
+              <div className="flex gap-2">
+                {fields.map((_, idx) => (
+                  <motion.div
+                    key={idx}
+                    animate={{
+                      backgroundColor: idx <= currentStep ? 'rgb(239, 68, 68)' : 'rgb(200, 200, 200)',
+                    }}
+                    className="h-1 flex-1 rounded-full"
+                  />
+                ))}
+              </div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
-              <motion.button
-                type="submit"
-                whileHover={{ scale: isLoading ? 1 : 1.05 }}
-                whileTap={{ scale: isLoading ? 1 : 0.95 }}
-                disabled={isLoading}
-                className="inline-block bg-red-500 hover:bg-red-600 text-white px-8 md:px-10 py-4 rounded-full font-bold transition-all hover:shadow-[0_0_40px_rgba(239,68,68,0.5)] uppercase tracking-widest text-sm disabled:opacity-70 disabled:cursor-not-allowed"
-              >
-                {isLoading ? "Regisztrálás..." : "Szeretnék regisztrálni az eseményre"}
-              </motion.button>
-            </div>
+              {/* Current field */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-end gap-3"
+                >
+                  <div className="flex-1">
+                    <label className="block text-sm font-semibold text-black mb-2">
+                      {currentField.label} *
+                    </label>
+                    <input
+                      type={currentField.name === 'email' ? 'email' : 'text'}
+                      name={currentField.name}
+                      id={currentField.name}
+                      value={formData[currentField.name as keyof typeof formData]}
+                      onChange={handleInputChange}
+                      onKeyPress={handleKeyPress}
+                      placeholder={currentField.placeholder}
+                      autoFocus
+                      disabled={isLoading}
+                      className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    />
+                  </div>
 
-            {/* Result Message */}
-            {result && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`p-4 rounded-lg text-sm font-medium ${
-                  result.includes("Köszönjük")
-                    ? "bg-green-100 text-green-800 border border-green-300"
-                    : "bg-red-100 text-red-800 border border-red-300"
-                }`}
-              >
-                {result}
-              </motion.div>
-            )}
-          </form>
+                  {/* Red button next to field */}
+                  <motion.button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={!isStepValid || isLoading}
+                    whileHover={isStepValid ? { scale: 1.1 } : {}}
+                    whileTap={isStepValid ? { scale: 0.95 } : {}}
+                    className="bg-red-500 hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white p-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center"
+                  >
+                    <ArrowRight size={20} />
+                  </motion.button>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Error message */}
+              {result === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-300"
+                >
+                  Hiba történt. Kérlek próbáld meg újra!
+                </motion.div>
+              )}
+            </form>
+          )}
+        </motion.div>
         </motion.div>
       </div>
     </section>
