@@ -212,7 +212,7 @@ export const EventHero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="flex items-end gap-3"
+                  className="flex flex-col md:flex-row md:items-end gap-3"
                 >
                   <div className="flex-1">
                     <label className="block text-sm font-semibold text-black mb-4">
@@ -258,7 +258,7 @@ export const EventHero = () => {
                     disabled={!isStepValid || isLoading}
                     whileHover={isStepValid ? { scale: 1.05 } : {}}
                     whileTap={isStepValid ? { scale: 0.95 } : {}}
-                    className="bg-red-500 hover:bg-red-600 disabled:bg-red-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm"
+                    className="bg-red-500 hover:bg-red-600 disabled:bg-red-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all md:flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm w-full md:w-auto"
                   >
                     Biztosítom a helyem
                     <ArrowRight size={18} />
