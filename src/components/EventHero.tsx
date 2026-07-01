@@ -260,7 +260,7 @@ export const EventHero = () => {
                     whileTap={isStepValid ? { scale: 0.95 } : {}}
                     className="bg-red-500 hover:bg-red-600 disabled:bg-red-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all md:flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm w-full md:w-auto"
                   >
-                    Biztosítom a helyem
+                    Feliratkozom a várólistára
                     <ArrowRight size={18} />
                   </motion.button>
                 </motion.div>
