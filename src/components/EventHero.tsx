@@ -14,7 +14,7 @@ export const EventHero = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const fields = [
-    { name: 'name', label: 'Keresztnév', placeholder: 'Vezetéknév Keresztnév', type: 'text' },
+    { name: 'name', label: 'Keresztnév', placeholder: 'Keresztnév', type: 'text' },
     { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu', type: 'email' },
     {
       name: 'medication',
