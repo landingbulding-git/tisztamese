@@ -4,16 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    q: "Ez felnőtteknek is való?",
-    a: "Igen. A népmesék archetípusai nem gyerekeknek 'kitalált' történetek – ősi szimbólumokat hordoznak, amelyek a felnőtt élet kérdéseire is mély válaszokat adhatnak. A módszer 12 éves kor felett alkalmazható."
+    q: "Milyen meseterápiás módszert alkalmaznak?",
+    a: "A Kincskereső Meseterápiás Módszer a tudattalannal dolgozik. Mivel a tudattalanunk legjobb kifejezési eszközei a képek és a szimbólumok, a népmesék képi világa kiválóan alkalmas arra, hogy ezeket a szimbolikus tartalmakat közvetítse, és általuk jól megélhető módon férjünk hozzá ezekhez a tartalmakhoz."
   },
   {
     q: "Nem tudok szépen rajzolni.",
     a: "Ez nem rajzszakkör. A pálcikaember is tökéletes, ha az a lelked igazságát tükrözi. A folyamat mélysége független a művészi tehetségtől."
   },
   {
-    q: "Akadály lehet-e, hogy nem szeretem a meséket?",
-    a: "Nem akadály. A nyitottság éppen elegendő. A mesei szimbólumok ugyanúgy dolgoznak a tudatalattinkban akkor is, ha a mese megérint vagy ha éppen nem tetszik."
+    q: "Van-e életkori határa a részvételnek?",
+    a: "Nincs felső korhatár; a betöltött 20. év felett bárki jöhet, aki érdeklődik. Akár 70-80 évesen is aktuális és hasznos ez a munka. Amíg lélegzünk, addig jó esetben előrefelé haladunk és fejlődünk, így az önmagunkkal való foglalkozást és a belső kapcsolatot idős korban sem érdemes letenni."
   }
 ];
 

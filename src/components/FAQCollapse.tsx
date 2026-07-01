@@ -18,7 +18,7 @@ const faqData: FAQSection[] = [
     items: [
       {
         question: "Milyen meseterápiás módszert alkalmaznak a foglalkozáson?",
-        answer: "A kincskereső meseterápiás módszer a tudattalannal dolgozik, amelynek tartalmaihoz nehéz közvetlenül hozzáférni. Mivel a tudattalan legjobb kifejezési eszközei a képek és a szimbólumok, a népmesék képi világa kiválóan alkalmas arra, hogy ezeket a szimbolikus tartalmakat közvetítse, és általuk jól megélhető módon férjünk hozzá a tudattalan folyamatokhoz."
+        answer: "A Kincskereső Meseterápiás Módszer a tudattalannal dolgozik. Mivel a tudattalanunk legjobb kifejezési eszközei a képek és a szimbólumok, a népmesék képi világa kiválóan alkalmas arra, hogy ezeket a szimbolikus tartalmakat közvetítse, és általuk jól megélhető módon férjünk hozzá ezekhez a tartalmakhoz."
       },
       {
         question: "Miért kizárólag népmesékkel dolgoznak a terápia során?",
@@ -39,15 +39,15 @@ const faqData: FAQSection[] = [
     items: [
       {
         question: "Pontosan mi fog történni az online eseményen?",
-        answer: "Az esemény elején elhangzik néhány bevezető mondat arról, hogyan értelmezzük az anyasebet, és milyen szimbolikus erővel bírnak a mesék. Ezután következik a mese (egy gazdag szimbolikájú magyar népmese, a Szétszál-szerűska), amit mindenki végighallgat. Ezt egy általam vezetett, otthoni testi relaxáció követi csukott szemmel. A relaxáció után újra elhangzanak a mese legfontosabb csomópontjai és szimbólumai, majd a résztvevők spontán lerajzolják a bennük kialakult képet. Az elkészült rajzot lefotózzák, feltöltik egy megadott linkre, és a jelentkezők közül néhánnyal – az időkereten belül – online megbeszéljük a látottakat."
+        answer: "Az esemény elején elhangzik néhány bevezető mondat arról, hogyan értelmezzük az anyasebet, és milyen szimbolikus erővel bírnak a mesék. Ezután következik a mese (egy gazdag szimbolikájú magyar népmese, a Szép Cerceruska), amit mindenki végighallgat. Ezt egy általam vezetett testi relaxáció követi csukott szemmel. A relaxáció közben újra elhangzanak a mese legfontosabb csomópontjai és szimbólumai, majd a résztvevők spontán lerajzolják a bennük kialakult képet. Az elkészült rajzot lefotózzák, feltöltik egy megadott linkre, és a jelentkezők közül néhánnyal – az időkereten belül – online megbeszéljük a látottakat."
       },
       {
         question: "Hogyan döntsem el a relaxáció után, hogy mit rajzoljak?",
-        answer: "A legjobb, ha egyáltalán nem foglalkozik ezzel tudatosan, és elengedi a tervezgetést. Engedni kell, hogy a mese átmossa a lelket, mint ahogy a tenger hulláma partra dob egy kavicsot. Ha valaki nem lát semmit a relaxáció alatt, az teljesen természetes, ilyenkor a belső látás épp kevésbé vizuális. A döntő pillanat az, amikor visszatérve egyszerűen csak a krétákhoz nyúlunk, és elkezdünk vonalakat húzni; a kép magától összeáll majd. Másnál előfordulhat az is, hogy végig egy konkrét, fix képet lát (például egy sárga vízilovat), ami látszólag nem kapcsolódik a meséhez, de mégis helye van ott."
+        answer: "A legjobb, ha egyáltalán nem foglalkozunk ezzel tudatosan, és elfelejtjük a tervezgetést. Engedni kell, hogy a mese átmossa a lelket, mint ahogy a tenger hulláma partra dob egy kavicsot. Ha valaki nem lát semmit a relaxáció alatt, az teljesen természetes, talán éppen kevésbé vizuális módon működünk. A döntő pillanat az, amikor visszatérve egyszerűen csak a krétákhoz nyúlunk, és elkezdünk vonalakat húzni; a kép magától összeáll majd. Másnál előfordulhat az is, hogy végig egy konkrét, fix képet lát (akár egy sárga vízilovat), ami látszólag nem kapcsolódik a meséhez, de mégis helye van ott."
       },
       {
         question: "Kötelező-e beszélnem az élményemről vagy megmutatnom a rajzomat?",
-        answer: "Nem, a megosztás és a beszélgetés teljesen önkéntes, egyetlen szót sem kötelező mondani, és a rajzot sem kötelező megmutatni. A mese a szimbólumok révén már a tudattalannal találkozva kifejtette a hatását, a kibeszélés hiánya csupán annyit jelent, hogy a tudatos feldolgozást magunkban, és nem másokkal megosztva végezzük el. Tapasztalat szerint a résztvevőket érdekli a saját rajzuk háttere, és szeretnék beazonosítani a mögötte rejlő emlékeket vagy élményeket."
+        answer: "Nem, a megosztás és a beszélgetés teljesen önkéntes, egyetlen szót sem kötelező mondani, és a rajzot sem kötelező megmutatni. A mese a szimbólumok révén már a tudattalannal találkozva kifejtette a hatását, a megbeszélés hiánya csupán annyit jelent, hogy a tudatos feldolgozást magunkban, és nem másokkal megosztva végezzük el. Tapasztalat szerint a résztvevőket érdekli a saját rajzuk háttere, és szeretnék beazonosítani a mögötte rejlő emlékeket vagy élményeket."
       },
       {
         question: "Kötelező-e egyáltalán rajzolni a foglalkozáson?",
@@ -72,7 +72,7 @@ const faqData: FAQSection[] = [
       },
       {
         question: "Van-e életkori határa a részvételnek?",
-        answer: "Nincs felső korhatár; a betöltött 20. év felett bárki jöhet, aki érdeklődik. Akár 50 felett, akár 70-80 évesen is aktuális és hasznos ez a munka. Amíg lélegzünk, addig jó esetben előrefelé változunk és fejlődünk, így az önmagunkkal való foglalkozást és a belső kapcsolatot idős korban sem érdemes letenni."
+        answer: "Nincs felső korhatár; a betöltött 20. év felett bárki jöhet, aki érdeklődik. Akár 70-80 évesen is aktuális és hasznos ez a munka. Amíg lélegzünk, addig jó esetben előrefelé haladunk és fejlődünk, így az önmagunkkal való foglalkozást és a belső kapcsolatot idős korban sem érdemes letenni."
       }
     ]
   },
@@ -98,7 +98,7 @@ const faqData: FAQSection[] = [
     items: [
       {
         question: "Természetes-e, ha valaki tart a foglalkozástól vagy fél a következményektől?",
-        answer: "Teljesen rendben van és természetes, alig találkozom olyan emberrel, aki ne félne egy kicsit a kezdés előtt. A félelem jön és megy, de ha átadjuk neki az irányítást, dolgokról maradhatunk le. A tartózkodás oka általában az, hogy tudjuk: a tudattalanban lévő dolgok szembenézéséhez erő kell. Ha egy belső tartalmat kimondunk és megnevezünk, az elköteleződéssel jár, nem tehetünk úgy, mintha mi sem történt volna. Az ismeretlentől való félelem normális, de jobb tudni, mi lakik bennünk és miért működik úgy, mint hagyni, hogy a letagadott belső tartalmak váratlan és kellemetlen pillanatokban okozzanak galibát a mindennapi kapcsolatainkban. A folyamat során semmi végzetes vagy önidegen dologra nem fogunk rájönni, csak arra, amik mi magunk vagyunk. Ha a módszert jól vezetik, nem lehet vele kárt okozni, bár szomorúságot vagy megrázó felismeréseket hozhat."
+        answer: "Teljesen rendben van és természetes, alig találkozom olyan emberrel, aki ne félne egy kicsit a kezdés előtt. A félelem jön és megy, de ha átadjuk neki az irányítást, fontos dolgokról maradhatunk le. A tartózkodás oka általában az, hogy tudjuk: a tudattalanban lévő dolgokkal való szembenézéséhez erő kell. Ha egy belső tartalmat kimondunk és megnevezünk, az elköteleződéssel jár, nem tehetünk úgy, mintha mi sem történt volna. Az ismeretlentől való félelem létező jelenség, de szerintem jobb tudni, mi lakik bennünk, mint hagyni, hogy a letagadott belső tartalmak váratlan és kellemetlen pillanatokban okozzanak galibát a mindennapi kapcsolatainkban. A folyamat során semmi végzetes vagy önidegen dologra nem fogunk rájönni, csak arra, amik mi magunk vagyunk. Ha a módszert jól vezetik, nem lehet vele kárt okozni, bár szomorúságot vagy megrázó felismeréseket hozhat."
       },
       {
         question: "Miben más az online forma, mint a személyes találkozó? Ugyanolyan hatásos?",
@@ -110,7 +110,7 @@ const faqData: FAQSection[] = [
       },
       {
         question: "Kik azok, akiknek jelenleg nem javasolt a részvétel?",
-        answer: "Nem javasolt a részvétel azoknak, akik nagyon friss gyászban vagy nagyon friss traumában, krízisben vannak (különösen, ha az épp az anyához kötődik, például egy aktuális családi szakítás vagy az anya közelmúltbeli halála esetén). Ilyenkor a tudattalan még az események rendezésével van elfoglalva, és egy nagyobb létszámú online eseményen feljöhetnek olyan túl erős megélések, amelyeket online formában nem lehet megfelelően kezelni. Ezen élethelyzetekben óvatosabb, egyéni módszerekkel, távolabbról indítva célszerű elkezdeni a munkát."
+        answer: "Nem javasolt a részvétel azoknak, akik nagyon friss gyászban vagy nagyon friss traumában, krízisben vannak (különösen, ha az épp az anyához kötődik, például egy aktuális családi szakítás vagy az anya közelmúltbeli halála esetén). Ilyenkor a tudattalan még az események rendezésével van elfoglalva, és egy nagyobb létszámú online eseményen feljöhetnek olyan túl erős megélések, amelyeket online formában nem lehet megfelelően kezelni. Ezen élethelyzetekben óvatosabb, egyéni módszerekkel, távolabbról indítva célszerű elkezdeni a munkát.\n\nFontos, hogy nem javasolt azoknak a személyeknek sem, akik pszichiátriai gyógyszereket, mentális zavarokra gyógyszereket szednek."
       }
     ]
   },
