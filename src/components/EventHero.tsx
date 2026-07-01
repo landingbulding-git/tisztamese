@@ -202,16 +202,17 @@ export const EventHero = () => {
                     />
                   </div>
 
-                  {/* Red button next to field */}
+                  {/* CTA button */}
                   <motion.button
                     type="button"
                     onClick={handleNext}
                     disabled={!isStepValid || isLoading}
-                    whileHover={isStepValid ? { scale: 1.1 } : {}}
+                    whileHover={isStepValid ? { scale: 1.05 } : {}}
                     whileTap={isStepValid ? { scale: 0.95 } : {}}
-                    className="bg-red-500 hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white p-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center"
+                    className="bg-red-500 hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm"
                   >
-                    <ArrowRight size={20} />
+                    Biztosítom a helyem
+                    <ArrowRight size={18} />
                   </motion.button>
                 </motion.div>
               </AnimatePresence>
