@@ -214,7 +214,7 @@ export const EventHero = () => {
                     disabled={!isStepValid || isLoading}
                     whileHover={isStepValid ? { scale: 1.05 } : {}}
                     whileTap={isStepValid ? { scale: 0.95 } : {}}
-                    className="bg-red-500 hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm"
+                    className="bg-red-500 hover:bg-red-600 disabled:bg-red-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm"
                   >
                     Biztosítom a helyem
                     <ArrowRight size={18} />
