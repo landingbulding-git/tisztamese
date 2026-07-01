@@ -4,21 +4,42 @@ import { Calendar, Clock, MapPin, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const EventHero = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    medication: '',
+    crisis: ''
+  });
   const [result, setResult] = useState<'' | 'success' | 'error'>('');
   const [isLoading, setIsLoading] = useState(false);
 
   const fields = [
-    { name: 'name', label: 'Keresztnév', placeholder: 'Vezetéknév Keresztnév' },
-    { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu' },
+    { name: 'name', label: 'Keresztnév', placeholder: 'Vezetéknév Keresztnév', type: 'text' },
+    { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu', type: 'email' },
+    {
+      name: 'medication',
+      label: 'Szedsz jelenleg pszichiátriai vagy mentális zavarokra felírt gyógyszert?',
+      type: 'radio',
+      options: ['Igen', 'Nem', 'Korábban igen']
+    },
+    {
+      name: 'crisis',
+      label: 'Jelenleg benne vagy-e olyan friss krízishelyzetben, traumában vagy gyászban (különösen az édesanyáddal kapcsolatban, pl. friss veszteség, szakítás), ami érzelmileg rendkívül megterhelő számodra?',
+      type: 'radio',
+      options: ['Igen', 'Nem']
+    },
   ];
 
-  const currentField = fields[currentStep];
-  const isStepValid = formData[currentField.name as keyof typeof formData]?.trim() !== '';
+  const currentField = fields[currentStep] as any;
+  const isStepValid = formData[currentField.name as keyof typeof formData] !== '';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleRadioChange = (value: string) => {
+    setFormData(prev => ({ ...prev, [currentField.name]: value }));
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -46,6 +67,8 @@ export const EventHero = () => {
       const web3FormData = new FormData();
       web3FormData.append("name", formData.name);
       web3FormData.append("email", formData.email);
+      web3FormData.append("medication", formData.medication);
+      web3FormData.append("crisis", formData.crisis);
       web3FormData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
 
       const web3Response = await fetch("https://api.web3forms.com/submit", {
@@ -64,6 +87,8 @@ export const EventHero = () => {
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
+            medication: formData.medication,
+            crisis: formData.crisis,
             event: "Anyaseb: online mesefoglalkozás felnőtt nőknek",
             timestamp: new Date().toISOString(),
           }),
@@ -190,21 +215,40 @@ export const EventHero = () => {
                   className="flex items-end gap-3"
                 >
                   <div className="flex-1">
-                    <label className="block text-sm font-semibold text-black mb-2">
+                    <label className="block text-sm font-semibold text-black mb-4">
                       {currentField.label} *
                     </label>
-                    <input
-                      type={currentField.name === 'email' ? 'email' : 'text'}
-                      name={currentField.name}
-                      id={currentField.name}
-                      value={formData[currentField.name as keyof typeof formData]}
-                      onChange={handleInputChange}
-                      onKeyPress={handleKeyPress}
-                      placeholder={currentField.placeholder}
-                      autoFocus
-                      disabled={isLoading}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    />
+                    {currentField.type === 'radio' ? (
+                      <div className="space-y-3">
+                        {currentField.options.map((option: string) => (
+                          <label key={option} className="flex items-center gap-3 cursor-pointer">
+                            <input
+                              type="radio"
+                              name={currentField.name}
+                              value={option}
+                              checked={formData[currentField.name as keyof typeof formData] === option}
+                              onChange={(e) => handleRadioChange(e.target.value)}
+                              disabled={isLoading}
+                              className="w-4 h-4 text-red-500 cursor-pointer"
+                            />
+                            <span className="text-black/70">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    ) : (
+                      <input
+                        type={currentField.type}
+                        name={currentField.name}
+                        id={currentField.name}
+                        value={formData[currentField.name as keyof typeof formData]}
+                        onChange={handleInputChange}
+                        onKeyPress={handleKeyPress}
+                        placeholder={currentField.placeholder}
+                        autoFocus
+                        disabled={isLoading}
+                        className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
+                    )}
                   </div>
 
                   {/* CTA button */}
