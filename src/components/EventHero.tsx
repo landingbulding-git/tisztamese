@@ -174,19 +174,6 @@ export const EventHero = () => {
             </motion.div>
           ) : (
             <form className="flex flex-col gap-6 mt-6 max-w-2xl">
-              {/* Progress indicator */}
-              <div className="flex gap-2">
-                {fields.map((_, idx) => (
-                  <motion.div
-                    key={idx}
-                    animate={{
-                      backgroundColor: idx <= currentStep ? 'rgb(239, 68, 68)' : 'rgb(200, 200, 200)',
-                    }}
-                    className="h-1 flex-1 rounded-full"
-                  />
-                ))}
-              </div>
-
               {/* Current field */}
               <AnimatePresence mode="wait">
                 <motion.div
