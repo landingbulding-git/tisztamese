@@ -140,7 +140,7 @@ export const EventHero = () => {
           >
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-white/10 backdrop-blur-sm">
               <img
-                src="https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/katievent.webp"
+                src="https://pmfyfnpyhiyhb9bc.public.blob.vercel-storage.com/anyaseb_kati.webp"
                 alt="Event"
                 className="w-full h-full object-cover"
               />
