@@ -63,20 +63,7 @@ export const EventHero = () => {
 
     setIsLoading(true);
     try {
-      // Send to Web3Forms
-      const web3FormData = new FormData();
-      web3FormData.append("name", formData.name);
-      web3FormData.append("email", formData.email);
-      web3FormData.append("medication", formData.medication);
-      web3FormData.append("crisis", formData.crisis);
-      web3FormData.append("access_key", "1ef4365a-f208-423a-b323-2c8b3ee304c3");
-
-      const web3Response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: web3FormData
-      });
-
-      // Send to webhook
+      // Send to webhook only
       const webhookResponse = await fetch(
         "https://demo.lupio.hu/webhook/bae077dc-a399-4bfc-8572-af104c358765",
         {
@@ -95,9 +82,7 @@ export const EventHero = () => {
         }
       );
 
-      const web3Data = await web3Response.json();
-
-      if (web3Data.success && webhookResponse.ok) {
+      if (webhookResponse.ok) {
         setResult("success");
       } else {
         setResult("error");
