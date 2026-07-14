@@ -70,8 +70,13 @@ export const EventHero = () => {
                 <span>Budakalász</span>
               </div>
             </div>
-            <div className="text-sm md:text-base text-black/70 font-medium">
-              <span className="text-red-500 font-semibold">hétfői sorozat:</span> 07.20., 08.10., 08.24. <span className="text-black/60">vagy</span> 07.21., 08.11., 08.25.
+            <div className="text-sm md:text-base text-black/70 font-medium space-y-1">
+              <div>
+                <span className="text-red-500 font-semibold">Hétfői sorozat:</span> 07.20., 08.10., 08.24.
+              </div>
+              <div>
+                <span className="text-red-500 font-semibold">Keddi sorozat:</span> 07.21., 08.11., 08.25.
+              </div>
             </div>
           </div>
 
