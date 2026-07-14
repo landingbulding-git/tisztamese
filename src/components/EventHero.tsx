@@ -7,6 +7,7 @@ export const EventHero = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    sorozat: '',
     medication: '',
     crisis: ''
   });
@@ -16,6 +17,12 @@ export const EventHero = () => {
   const fields = [
     { name: 'name', label: 'Keresztnév', placeholder: 'Keresztnév', type: 'text' },
     { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu', type: 'email' },
+    {
+      name: 'sorozat',
+      label: 'Melyik sorozatot választod?',
+      type: 'radio',
+      options: ['júli. 20., aug. 10., aug. 24.', 'júli. 21., aug. 11., aug. 25.']
+    },
     {
       name: 'medication',
       label: 'Szedsz jelenleg pszichiátriai vagy mentális zavarokra felírt gyógyszert?',
@@ -74,9 +81,10 @@ export const EventHero = () => {
           body: JSON.stringify({
             name: formData.name,
             email: formData.email,
+            sorozat: formData.sorozat,
             medication: formData.medication,
             crisis: formData.crisis,
-            event: "Anyaseb: online mesefoglalkozás felnőtt nőknek",
+            event: "Anyaseb: személyes mesefoglalkozás felnőtt nőknek",
             timestamp: new Date().toISOString(),
           }),
         }
@@ -142,22 +150,18 @@ export const EventHero = () => {
         >
           {/* Title */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-black leading-tight">
-            Anyaseb:<span className="text-red-500"> online mesefoglalkozás felnőtt nőknek</span>
+            Anyaseb:<span className="text-red-500"> személyes mesefoglalkozás felnőtt nőknek</span>
           </h1>
 
           {/* Meta Information */}
           <div className="flex flex-wrap gap-2 md:gap-4 items-center text-sm md:text-base">
             <div className="flex items-center gap-2 text-red-500 font-semibold">
-              <Calendar className="w-5 h-5" />
-              <span>2026.07.08.</span>
-            </div>
-            <div className="flex items-center gap-2 text-red-500 font-semibold">
               <Clock className="w-5 h-5" />
-              <span>18:00 - 20:30</span>
+              <span>18:00 - 21:00</span>
             </div>
             <div className="flex items-center gap-2 text-black/60 text-sm">
               <MapPin className="w-4 h-4" />
-              <span>Online</span>
+              <span>Budakalász</span>
             </div>
           </div>
 
@@ -172,9 +176,10 @@ export const EventHero = () => {
           </div>
 
           {/* Event Info */}
-          <p className="text-sm md:text-base text-black/60 font-medium">
-            Az esemény ingyenes de regisztrációhoz kötött.
-          </p>
+          <div className="text-sm md:text-base text-black/60 font-medium space-y-1">
+            <p><b>Ár:</b> 18.000 Ft/alkalom – 54.000 Ft/sorozat</p>
+            <p><b>Előleg:</b> 14.000 Ft</p>
+          </div>
 
           {/* Registration Form */}
           {result === 'success' ? (
