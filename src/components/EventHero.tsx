@@ -1,105 +1,10 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Calendar, Clock, MapPin, ArrowRight, CheckCircle } from 'lucide-react';
+import React from 'react';
+import { motion } from 'motion/react';
+import { Clock, MapPin, ArrowRight } from 'lucide-react';
 
 export const EventHero = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    sorozat: '',
-    medication: '',
-    crisis: ''
-  });
-  const [result, setResult] = useState<'' | 'success' | 'error'>('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const fields = [
-    { name: 'name', label: 'Keresztnév', placeholder: 'Keresztnév', type: 'text' },
-    { name: 'email', label: 'E-mail cím', placeholder: 'email@pelda.hu', type: 'email' },
-    {
-      name: 'sorozat',
-      label: 'Melyik sorozatot választod?',
-      type: 'radio',
-      options: ['júli. 20., aug. 10., aug. 24.', 'júli. 21., aug. 11., aug. 25.']
-    },
-    {
-      name: 'medication',
-      label: 'Szedsz jelenleg pszichiátriai vagy mentális zavarokra felírt gyógyszert?',
-      type: 'radio',
-      options: ['Igen', 'Nem', 'Korábban igen']
-    },
-    {
-      name: 'crisis',
-      label: 'Jelenleg benne vagy-e olyan friss krízishelyzetben, traumában vagy gyászban (különösen az édesanyáddal kapcsolatban, pl. friss veszteség, szakítás), ami érzelmileg rendkívül megterhelő számodra?',
-      type: 'radio',
-      options: ['Igen', 'Nem']
-    },
-  ];
-
-  const currentField = fields[currentStep] as any;
-  const isStepValid = formData[currentField.name as keyof typeof formData] !== '';
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleRadioChange = (value: string) => {
-    setFormData(prev => ({ ...prev, [currentField.name]: value }));
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleNext();
-    }
-  };
-
-  const handleNext = async () => {
-    if (!isStepValid) return;
-
-    if (currentStep < fields.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      await handleSubmit();
-    }
-  };
-
-  const handleSubmit = async () => {
-    if (!isStepValid) return;
-
-    setIsLoading(true);
-    try {
-      // Send to webhook only
-      const webhookResponse = await fetch(
-        "https://demo.lupio.hu/webhook/bae077dc-a399-4bfc-8572-af104c358765",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            sorozat: formData.sorozat,
-            medication: formData.medication,
-            crisis: formData.crisis,
-            event: "Anyaseb: személyes mesefoglalkozás felnőtt nőknek",
-            timestamp: new Date().toISOString(),
-          }),
-        }
-      );
-
-      if (webhookResponse.ok) {
-        setResult("success");
-      } else {
-        setResult("error");
-      }
-    } catch (error) {
-      setResult("error");
-    } finally {
-      setIsLoading(false);
-    }
+  const handleButtonClick = () => {
+    window.location.href = 'https://tally.so/r/Meq8PY';
   };
 
   return (
@@ -181,93 +86,17 @@ export const EventHero = () => {
             <p><b>Előleg:</b> 14.000 Ft</p>
           </div>
 
-          {/* Registration Form */}
-          {result === 'success' ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col gap-4 mt-6 max-w-2xl items-center py-8"
-            >
-              <CheckCircle size={64} className="text-emerald-500" />
-              <h3 className="text-2xl font-bold text-black">Köszönjük a regisztrációt!</h3>
-              <p className="text-black/70">Hamarosan kapcsolatba lépünk veled.</p>
-            </motion.div>
-          ) : (
-            <form className="flex flex-col gap-6 mt-6 max-w-2xl">
-              {/* Current field */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentStep}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col md:flex-row md:items-end gap-3"
-                >
-                  <div className="flex-1">
-                    <label className="block text-sm font-semibold text-black mb-4">
-                      {currentField.label} *
-                    </label>
-                    {currentField.type === 'radio' ? (
-                      <div className="space-y-3">
-                        {currentField.options.map((option: string) => (
-                          <label key={option} className="flex items-center gap-3 cursor-pointer">
-                            <input
-                              type="radio"
-                              name={currentField.name}
-                              value={option}
-                              checked={formData[currentField.name as keyof typeof formData] === option}
-                              onChange={(e) => handleRadioChange(e.target.value)}
-                              disabled={isLoading}
-                              className="w-4 h-4 text-red-500 cursor-pointer"
-                            />
-                            <span className="text-black/70">{option}</span>
-                          </label>
-                        ))}
-                      </div>
-                    ) : (
-                      <input
-                        type={currentField.type}
-                        name={currentField.name}
-                        id={currentField.name}
-                        value={formData[currentField.name as keyof typeof formData]}
-                        onChange={handleInputChange}
-                        onKeyPress={handleKeyPress}
-                        placeholder={currentField.placeholder}
-                        autoFocus
-                        disabled={isLoading}
-                        className="w-full px-4 py-3 rounded-lg border-2 border-red-200 bg-white text-black placeholder:text-black/40 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                      />
-                    )}
-                  </div>
-
-                  {/* CTA button */}
-                  <motion.button
-                    type="button"
-                    onClick={handleNext}
-                    disabled={!isStepValid || isLoading}
-                    whileHover={isStepValid ? { scale: 1.05 } : {}}
-                    whileTap={isStepValid ? { scale: 0.95 } : {}}
-                    className="bg-red-500 hover:bg-red-600 disabled:bg-red-700 disabled:cursor-not-allowed text-white px-6 py-3 rounded-lg transition-all md:flex-shrink-0 flex items-center justify-center gap-2 font-semibold whitespace-nowrap text-sm w-full md:w-auto"
-                  >
-                    Feliratkozom a várólistára
-                    <ArrowRight size={18} />
-                  </motion.button>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Error message */}
-              {result === 'error' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-300"
-                >
-                  Hiba történt. Kérlek próbáld meg újra!
-                </motion.div>
-              )}
-            </form>
-          )}
+          {/* CTA Button */}
+          <motion.button
+            type="button"
+            onClick={handleButtonClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg transition-all flex items-center justify-center gap-2 font-semibold text-base w-full md:w-auto mt-6"
+          >
+            Feliratkozom a várólistára
+            <ArrowRight size={20} />
+          </motion.button>
         </motion.div>
       </div>
     </section>
