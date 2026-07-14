@@ -10,6 +10,7 @@ interface FAQItem {
 interface FAQSection {
   title: string;
   items: FAQItem[];
+  hidden?: boolean;
 }
 
 const faqData: FAQSection[] = [
@@ -112,6 +113,7 @@ const faqData: FAQSection[] = [
   },
   {
     title: "Interakció a csoportban",
+    hidden: true,
     items: [
       {
         question: "Reflektálhatnak-e a csoporttagok egymás rajzaira?",
@@ -149,7 +151,7 @@ export const FAQCollapse = () => {
         </p>
 
         <div className="space-y-4">
-          {faqData.map((section, sectionIdx) => (
+          {faqData.filter(section => !section.hidden).map((section, sectionIdx) => (
             <div key={sectionIdx} className="space-y-3">
               <h3 className="text-lg font-semibold text-black mt-8 mb-4 first:mt-0">
                 {section.title}

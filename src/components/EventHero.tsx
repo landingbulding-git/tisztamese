@@ -90,10 +90,16 @@ export const EventHero = () => {
             </p>
           </div>
 
-          {/* Event Info */}
-          <div className="text-sm md:text-base text-black/60 font-medium space-y-1">
-            <p><b>Ár:</b> 18.000 Ft/alkalom – 54.000 Ft/sorozat</p>
-            <p><b>Előleg:</b> 14.000 Ft</p>
+          {/* Important Info */}
+          <div className="bg-red-50 border-l-4 border-red-500 p-6 my-6 rounded-r-lg">
+            <h3 className="font-semibold text-black mb-3">Fontos információ</h3>
+            <div className="text-sm md:text-base text-black/70 space-y-2 leading-relaxed">
+              <p>A sorozat <b>3 mesézésből áll</b>, melyek személyesen Budakalászon kerülnek megszervezésre. Csak egy vagy két alkalomra jelen esetben <b>nincs lehetőség</b> jelentkezni. Amennyiben a megadott sorozatok időpontjait szeretnéd variálni (egyszer hétfő, egyszer kedd), kérlek, vedd fel velem a kapcsolatot.</p>
+              <p className="mt-4 pt-2 border-t border-red-200">
+                <b>A három alkalom ára:</b> 54.000 Ft (18.000 Ft/alkalom)<br/>
+                <b>A helyek gyorsan fogynak,</b> 14.000 Ft előleg ellenében biztosíthatod a részvételedet.
+              </p>
+            </div>
           </div>
 
           {/* CTA Button */}
