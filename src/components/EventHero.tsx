@@ -59,14 +59,19 @@ export const EventHero = () => {
           </h1>
 
           {/* Meta Information */}
-          <div className="flex flex-wrap gap-2 md:gap-4 items-center text-sm md:text-base">
-            <div className="flex items-center gap-2 text-red-500 font-semibold">
-              <Clock className="w-5 h-5" />
-              <span>18:00 - 21:00</span>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-4 items-center text-sm md:text-base">
+              <div className="flex items-center gap-2 text-red-500 font-semibold">
+                <Clock className="w-5 h-5" />
+                <span>18:00 - 21:00</span>
+              </div>
+              <div className="flex items-center gap-2 text-black/60 text-sm">
+                <MapPin className="w-4 h-4" />
+                <span>Budakalász</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-black/60 text-sm">
-              <MapPin className="w-4 h-4" />
-              <span>Budakalász</span>
+            <div className="text-sm md:text-base text-black/70 font-medium">
+              <span className="text-red-500 font-semibold">hétfői sorozat:</span> 07.20., 08.10., 08.24. <span className="text-black/60">vagy</span> 07.21., 08.11., 08.25.
             </div>
           </div>
 
