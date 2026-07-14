@@ -94,7 +94,7 @@ export const EventHero = () => {
             whileTap={{ scale: 0.95 }}
             className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg transition-all flex items-center justify-center gap-2 font-semibold text-base w-full md:w-auto mt-6"
           >
-            Feliratkozom a várólistára
+            Részt veszek az eseményen
             <ArrowRight size={20} />
           </motion.button>
         </motion.div>
